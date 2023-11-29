@@ -3,6 +3,7 @@ The rules of the game are as follows: 2 players take part in the game. Each play
 
 ## Install
 * Download this assets
+* Create new Unity 3D project or use exists
 * Unpack this into yours Unity project
 * Run project
 
