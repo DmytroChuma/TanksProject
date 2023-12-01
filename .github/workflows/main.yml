@@ -1,3 +1,4 @@
+name: CSSuperLinter
 on:
   push:
     branches: [ "main" ]
