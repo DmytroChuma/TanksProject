@@ -1,33 +1,14 @@
-name: CSLinter
 on:
-    push:
-      branches: [ "main" ]
-      paths:
-        -"/*.cs"
-        -".github/workflows/main.yml"
-    pull_request:
-      branches: [ "main" ]
-      paths:
-        -"/*.cs"
-        -".github/workflows/main.yml"
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  dotnet-format:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Add dotnet-format problem matcher
-        uses: xt0rted/dotnet-format-problem-matcher@v1
-
-      - name: Restore dotnet tools
-        uses: xt0rted/dotnet-tool-restore@v1
-
-      - name: Run dotnet format
-        uses: requizm/dotnet-format@0.2.0
-
-
-         
-      - name: Run a one-line script
-        run: echo "Job end"
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
+      - run: dotnet --version
+      - run: dotnet build
