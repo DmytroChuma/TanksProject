@@ -12,8 +12,24 @@ jobs:
   dotnet-format:
     runs-on: ubuntu-latest
     steps:
-       - name: Unity Linter
-         uses: integraldx/UnityLinter@v0.1.0
+      - name: Checkout
+        uses: actions/checkout@v3
+    
+      - name: Glob Match
+        id: glob
+        uses: zyactions/glob@v2
+        with:
+          pattern: |
+            Assets/Scripts/*.cs
+          return-pipe: true
+    
+      - name: .NET Lint
+        uses: zyactions/dotnet-lint@v1
+        with:
+          workspace: test/Test.csproj
+          include: '-'
+          pipe: ${{ steps.glob.outputs.pipe }}
+          implicit-restore: true
    #   - name: Super-Linter          
    #     uses: super-linter/super-linter@v5.7.1
    #     with:
