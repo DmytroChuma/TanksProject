@@ -11,10 +11,12 @@ on:
 jobs:
   dotnet-format:
     runs-on: ubuntu-latest
-    steps:   
-      - name: Super-Linter          
-        uses: super-linter/super-linter@v5.7.1
-        with:
-          path: ${{ github.workspace }}
-          name: ${{ env.VERSION_MAJOR }}.${{ env.VERSION_MINOR }}
+    steps:
+       - name: Unity Linter
+         uses: integraldx/UnityLinter@v0.1.0
+   #   - name: Super-Linter          
+   #     uses: super-linter/super-linter@v5.7.1
+   #     with:
+  #       path: ${{ github.workspace }}
+   #       name: ${{ env.VERSION_MAJOR }}.${{ env.VERSION_MINOR }}
 
