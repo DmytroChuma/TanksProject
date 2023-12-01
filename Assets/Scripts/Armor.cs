@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Armor : MonoBehaviour
 {
-    public int Thickness;
+        public int Thickness;
     public bool additional = false;
 
     void OnTriggerEnter(Collider collision)
