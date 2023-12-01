@@ -4,8 +4,8 @@ on:
     branches:
     - main
     paths:
-        -"/*.cs"
-        -".github/workflows/main.yml"
+        - "/*.cs"
+        - ".github/workflows/main.yml"
   workflow_dispatch:
 
 jobs:
