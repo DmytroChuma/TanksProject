@@ -9,22 +9,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  dotnet-format:
+  build:
+    name: Lint Code Base
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-    
-      - name: Glob Match
-        id: glob
-        uses: zyactions/glob@v2
+      - name: Checkout Code
+        uses: actions/checkout@v4
         with:
-          pattern: |
-            Assets/Scripts/*.cs
-          return-pipe: true
-    
-      - name: .NET Lint
-        uses: zyactions/dotnet-lint@v1
+          fetch-depth: 0
+      - name: Lint Code Base
+        uses: super-linter/super-linter@v5
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
    #   - name: Super-Linter          
    #     uses: super-linter/super-linter@v5.7.1
