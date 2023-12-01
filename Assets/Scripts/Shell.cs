@@ -36,6 +36,9 @@ public class Shell : MonoBehaviour
     private const string breaking = "Пробив";
     private const string noBreaking = "Не пробив";
     private const string ricochet = "Рикошет";
+
+    private bool ray = false;
+    
     // Start is called before the first frame update
     void Start()
     {
