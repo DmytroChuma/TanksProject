@@ -38,7 +38,7 @@ public class Shell : MonoBehaviour
     private const string ricochet = "Рикошет";
 
     private bool ray = false;
-    
+      private Transform collisionPoint;
     // Start is called before the first frame update
     void Start()
     {
