@@ -1,4 +1,4 @@
-name: FirstWorkflow
+name: CSLinter
 on:
     push:
       branches: [ "main" ]
